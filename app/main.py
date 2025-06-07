@@ -1,5 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from app.gemini_integration import parse_resume_with_gemini
+import io
 
 app = FastAPI()
 
@@ -18,5 +20,14 @@ def read_root():
 
 @app.post("/upload_resume/")
 async def upload_resume(file: UploadFile = File(...)):
-    # Placeholder for resume parsing logic
-    return {"filename": file.filename, "status": "uploaded"}
+    # Read file contents
+    contents = await file.read()
+    # Attempt to decode as text
+    try:
+        text = contents.decode("utf-8")
+    except UnicodeDecodeError:
+        # Fallback for binary files (e.g., PDF, DOCX): return error for now
+        return {"error": "Only UTF-8 text resumes are supported in this demo."}
+    # Parse resume using Gemini API integration
+    parsed = parse_resume_with_gemini(text)
+    return {"filename": file.filename, "parsed": parsed}
