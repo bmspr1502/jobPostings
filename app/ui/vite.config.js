@@ -10,5 +10,6 @@ export default defineConfig({
       "/search_jobs": "http://localhost:8000",
       "/match_job": "http://localhost:8000",
     },
+    port: 5173,
   },
 });

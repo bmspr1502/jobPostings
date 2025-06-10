@@ -23,11 +23,10 @@ export default function JobSearch({ resumeData, onSelectJob }) {
     setError("");
     setJobs([]);
     try {
-      const res = await axios.post("/search_jobs/", null, {
-        params: {
-          skills: resumeData.skills,
-          location,
-        },
+      // Send skills and location as JSON body, not as query params
+      const res = await axios.post("http://localhost:8000/search_jobs/", {
+        skills: resumeData.skills,
+        location,
       });
       if (Array.isArray(res.data.results)) {
         setJobs(res.data.results);

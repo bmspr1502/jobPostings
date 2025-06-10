@@ -19,7 +19,7 @@ export default function JobMatch({ resumeData, job }) {
     setError("");
     setScore(null);
     try {
-      const res = await axios.post("/match_job/", {
+      const res = await axios.post("http://localhost:8000/match_job/", {
         job_description: job.description,
         resume_data: resumeData,
       });

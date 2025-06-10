@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pranava Raman Boosi Madhavan Sathya Ram - Resume</title>
+    <!-- Inter font for modern look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --primary: #22223b;
+        --secondary: #4a4e69;
+        --accent: #9a8c98;
+        --muted: #bfc0c0;
+        --bg: #fff;
+        --section-border: #e5e7eb;
+        --tag-bg: #e0e7ff;
+        --tag-color: #22223b;
+      }
+      html,
+      body {
+        font-family: "Inter", "Roboto", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--primary);
+        font-size: 0.88rem; /* reduced font size */
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 18px 10px 18px 10px;
+      }
+      header {
+        border-bottom: 2px solid var(--section-border);
+        margin-bottom: 14px;
+        padding-bottom: 6px;
+      }
+      .name-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .name {
+        font-size: 1.45rem; /* reduced font size */
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: var(--primary);
+      }
+      .contact {
+        font-size: 0.92rem; /* reduced font size */
+        color: var(--secondary);
+        margin-top: 2px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .contact a {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .contact a:hover {
+        text-decoration: underline;
+      }
+      section {
+        margin-bottom: 14px;
+        page-break-inside: avoid;
+      }
+      .section-title {
+        font-size: 0.98rem; /* reduced font size */
+        font-weight: 700;
+        color: var(--secondary);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-bottom: 1.5px solid var(--section-border);
+        margin-bottom: 6px;
+        padding-bottom: 1px;
+      }
+      .flex-row {
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .edu-list,
+      .exp-list,
+      .proj-list,
+      .pub-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .edu-item,
+      .exp-item,
+      .proj-item,
+      .pub-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding-bottom: 2px;
+      }
+      .edu-header,
+      .exp-header,
+      .proj-header,
+      .pub-header {
+        display: flex;
+        width: 100%;
+        align-items: baseline;
+        flex-wrap: wrap;
+      }
+      .degree,
+      .job-title,
+      .project-title,
+      .publication-title {
+        font-weight: 600;
+        font-size: 0.95rem; /* reduced font size */
+        color: var(--primary);
+      }
+      .edu-meta,
+      .exp-meta,
+      .proj-meta,
+      .pub-meta {
+        font-size: 0.88rem; /* reduced font size */
+        color: var(--secondary);
+        font-weight: 500;
+        text-align: right;
+        margin-left: auto;
+        min-width: 180px;
+        /* right align always */
+      }
+      .edu-detail,
+      .company-name,
+      .date-range {
+        font-size: 0.85rem; /* reduced font size */
+        color: var(--accent);
+        font-weight: 400;
+      }
+      /* Make location text more visible */
+      .location-text {
+        color: #3b4252 !important;
+        font-size: 0.87rem !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.01em;
+      }
+      .date-range {
+        font-style: italic;
+        color: var(--accent);
+        font-size: 0.82rem;
+        margin-left: 8px;
+        margin-right: 0;
+        margin-left: auto;
+        text-align: right;
+        min-width: 90px;
+      }
+      ul {
+        margin: 2px 0 2px 16px;
+        padding: 0;
+        list-style-type: disc;
+      }
+      ul li {
+        margin-bottom: 1px;
+        line-height: 1.28;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 12px;
+      }
+      .skills-category {
+        font-weight: 600;
+        color: var(--primary);
+        margin-top: 2px;
+        margin-bottom: 2px;
+        font-size: 0.92rem;
+      }
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 4px;
+      }
+      .skill-tag {
+        background: var(--tag-bg);
+        color: var(--tag-color);
+        padding: 1.5px 8px;
+        border-radius: 10px;
+        font-size: 0.72rem;
+        font-weight: 500;
+        margin-bottom: 1px;
+      }
+
+      /* Print styles for PDF export */
+      @media print {
+        html,
+        body {
+          background: #fff !important;
+          color: #000 !important;
+        }
+        body {
+          max-width: 100%;
+          padding: 0.5cm 1.2cm 0.5cm 1.2cm;
+        }
+        .skill-tag {
+          background: #e0e7ff !important;
+          color: #22223b !important;
+        }
+        a {
+          color: #000 !important;
+          text-decoration: underline !important;
+        }
+        section {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PDF Download Button -->
+    <button
+      id="pdf-btn"
+      style="
+        position: fixed;
+        top: 18px;
+        right: 24px;
+        z-index: 1000;
+        padding: 6px 16px;
+        font-size: 0.9rem;
+        background: #4a4e69;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        box-shadow: 0 1px 4px #0001;
+      ">
+      Download as PDF
+    </button>
+    <div
+      id="resume-content"
+      style="
+        background: #fff;
+        color: #22223b;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 18px 10px 18px 10px;
+      ">
+      <!-- Header Section -->
+      <header>
+        <div class="name-row">
+          <div class="name">Pranava Raman Boosi Madhavan Sathya Ram</div>
+        </div>
+        <div class="contact">
+          <a href="tel:+919443501317">+91 94435 01317</a>
+          <span>|</span>
+          <a href="mailto:bmspr1502@gmail.com">bmspr1502@gmail.com</a>
+          <span>|</span>
+          <span>Bengaluru, India</span>
+          <span>|</span>
+          <a
+            href="https://www.linkedin.com/in/pranava-raman-bms"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <span>|</span>
+          <a href="https://github.com/bmspr1502" target="_blank">GitHub</a>
+        </div>
+      </header>
+
+      <!-- Summary Section -->
+      <section>
+        <div class="section-title">Summary</div>
+        <p>
+          Highly motivated and results-oriented Software Engineer pursuing a
+          Master's degree in Computer Science with a strong foundation in
+          distributed systems, full-stack development, and data stream
+          processing. Passionate about building and optimizing large-scale,
+          highly available, and reliable distributed file systems, with proven
+          experience in backend architecture, performance optimization, and
+          cloud technologies, including software and hardware optimizations.
+        </p>
+      </section>
+
+      <!-- Education Section -->
+      <section>
+        <div class="section-title">Education</div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="edu-header">
+              <span class="degree">Master of Science in Computer Science</span>
+              <span class="edu-meta">Georgia Institute of Technology</span>
+            </div>
+            <div class="flex-row" style="margin-top: -2px">
+              <span class="edu-detail location-text">Atlanta, GA, USA</span>
+              &nbsp;
+              <span class="edu-detail location-text">(Mode: Online)</span>
+            </div>
+            <div class="flex-row">
+              <span class="edu-detail">08/2024-Present</span>
+              <span class="edu-detail" style="margin-left: auto"
+                >GPA: 4.0/4.0</span
+              >
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-header">
+              <span class="degree"
+                >Bachelor of Engineering in Computer Science and
+                Engineering</span
+              >
+              <span class="edu-meta"
+                >College of Engineering, Guindy, Anna University</span
+              >
+            </div>
+            <div class="flex-row" style="margin-top: -2px">
+              <span class="edu-detail location-text">Chennai, India</span>
+            </div>
+            <div class="flex-row">
+              <span class="edu-detail">07/2019-04/2023</span>
+              <span class="edu-detail" style="margin-left: auto"
+                >CGPA: 9.51/10</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work Experience Section -->
+      <section>
+        <div class="section-title">Work Experience</div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="job-title">Software Engineer</span>
+              <span
+                class="exp-meta"
+                style="margin-left: auto; text-align: right">
+                <span class="location-text">Bengaluru, India</span>
+                <span class="date-range" style="margin-left: 8px"
+                  >(08/2023-Present)</span
+                >
+              </span>
+            </div>
+            <ul>
+              <li>
+                Engineered and delivered end-to-end full-stack solutions for a
+                greenfield Home Lending platform, developing, maintaining, and
+                testing critical components with Spring Batch, Spring Boot, and
+                Angular, ensuring high performance and reliability.
+              </li>
+              <li>
+                Designed and implemented scalable backend solutions,
+                significantly improving application performance and reliability
+                for high-volume transactions within a critical financial domain.
+              </li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="job-title">Intern Analyst</span>
+              <span
+                class="exp-meta"
+                style="margin-left: auto; text-align: right">
+                <span class="location-text">Hyderabad, India</span>
+                <span class="date-range" style="margin-left: 8px"
+                  >(02/2023-08/2023)</span
+                >
+              </span>
+            </div>
+            <ul>
+              <li>
+                Enhanced batch processing applications by developing new
+                features and resolving critical bugs, contributing to improved
+                data processing efficiency and system stability.
+              </li>
+            </ul>
+          </div>
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="job-title">Summer Intern</span>
+              <span
+                class="exp-meta"
+                style="margin-left: auto; text-align: right">
+                <span class="location-text">Remote</span>
+                <span class="date-range" style="margin-left: 8px"
+                  >(06/2022-07/2022)</span
+                >
+              </span>
+            </div>
+            <ul>
+              <li>
+                Developed a prototype for a real-time data stream analytics
+                pipeline, involving the deployment and configuration of multiple
+                Kafka servers.
+              </li>
+              <li>
+                Built a Spring Boot server as a data source, analyzed streaming
+                data using Scala, and visualized insights in a Python dashboard,
+                demonstrating experience with distributed messaging and data
+                processing at scale.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publications Section -->
+      <section>
+        <div class="section-title">Publications</div>
+        <div class="pub-list">
+          <div class="pub-item">
+            <div class="pub-header">
+              <span class="publication-title"
+                >Analysis of the Effect of Black Box Adversarial Attacks on
+                Medical Image Classification Models</span
+              >
+              <span class="pub-meta"
+                ><a
+                  href="https://ieeexplore.ieee.org/abstract/document/9917603"
+                  target="_blank"
+                  >(Publication)</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Discussed four black-box adversarial attack algorithms and their
+                effectiveness against two medical image classification models.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section>
+        <div class="section-title">Projects</div>
+        <div class="proj-list">
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="project-title">Autonomous Stock Trading Bot</span>
+            </div>
+            <ul>
+              <li>
+                Developed an autonomous trading bot utilizing a hybrid approach
+                of Random Forest for predictive modeling and Q-Learning for
+                optimal decision-making, designed to maximize profit for a
+                single stock over a specified trading period, integrating
+                technical and fundamental indicators.
+              </li>
+            </ul>
+          </div>
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="project-title"
+                >Gen-AI Based Email Classification and OCR Solution</span
+              >
+            </div>
+            <ul>
+              <li>
+                Designed and implemented a Gemini-powered email classification
+                system for commercial lending services during a Wells Fargo
+                hackathon, extracting and classifying emails and attachments
+                into customizable request types.
+              </li>
+            </ul>
+          </div>
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="project-title"
+                >Adversarial Evasion Attacks and Defences for Malware
+                Detection</span
+              >
+              <span class="proj-meta"
+                ><a
+                  href="https://drive.google.com/file/d/1nDVPCEo9dwb-29RWC5eVTQcIzc65GeAy/view"
+                  target="_blank"
+                  >(Thesis)</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Final year thesis on the effects of Adversarial Attacks and
+                defence mechanisms for a DNN Android malware detector, recording
+                findings of 9 attack and 7 defence models, including 2 newly
+                proposed models.
+              </li>
+            </ul>
+          </div>
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="project-title"
+                >Physical Simulation of a Cricket Ball in Motion Using
+                Unity</span
+              >
+              <span class="proj-meta"
+                ><a
+                  href="https://github.com/bmspr1502/unity_cricket"
+                  target="_blank"
+                  >(GitHub)</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Engineered a highly realistic physical simulation of a cricket
+                ball in motion using Unity Engine (C#), focusing on complex
+                dynamic modeling and performance optimization to accurately
+                render parabolic motion, spin, and swing under various
+                environmental factors.
+              </li>
+            </ul>
+          </div>
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="project-title"
+                >Full-Stack Web Application for Event Registration and
+                Payments</span
+              >
+            </div>
+            <ul>
+              <li>
+                Developed and deployed a robust full-stack web application on
+                AWS to manage event registrations and payments for a technical
+                symposium.
+              </li>
+              <li>
+                Implemented secure payment gateways, user authentication, and a
+                scalable backend architecture designed for high availability and
+                efficient transaction processing.
+              </li>
+            </ul>
+          </div>
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="project-title">Inscription Reader</span>
+            </div>
+            <ul>
+              <li>
+                Created a REST API and designed front-end and back-end
+                components for a Deep Learning tool dedicated to recognizing and
+                classifying ancient Tamil characters in stone inscriptions.
+              </li>
+            </ul>
+          </div>
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="project-title">General Language Compiler</span>
+              <span class="proj-meta"
+                ><a
+                  href="https://github.com/bmspr1502/general-language-compiler"
+                  target="_blank"
+                  >(GitHub)</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Constructed a transcompiler to translate vernacular languages to
+                C code using custom token sets and context-free grammars for
+                lexical and syntactic translation, currently supporting Sanskrit
+                and Tamil.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Skills Section -->
+      <section>
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+          <div>
+            <div class="skills-category">Programming & Scripting</div>
+            <div class="skills-list">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C/C++</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+            </div>
+          </div>
+          <div>
+            <div class="skills-category">Tools & Technologies</div>
+            <div class="skills-list">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Firebase</span>
+              <span class="skill-tag">Spring Batch/Boot</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">Unity Engine (C#)</span>
+              <span class="skill-tag">Kafka</span>
+              <span class="skill-tag">Tensorflow</span>
+              <span class="skill-tag">Pytorch</span>
+              <span class="skill-tag">Gemini</span>
+              <span class="skill-tag">Vertex AI</span>
+              <span class="skill-tag">React.js</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      // Hide the PDF button when printing
+      document.getElementById("pdf-btn").addEventListener("click", function () {
+        window.print();
+      });
+      window.addEventListener("beforeprint", function () {
+        document.getElementById("pdf-btn").style.display = "none";
+      });
+      window.addEventListener("afterprint", function () {
+        document.getElementById("pdf-btn").style.display = "";
+      });
+    </script>
+  </body>
+</html>
